@@ -18,8 +18,14 @@ export class UserService {
   }
 
   searchUserFromEmail(email) {
-    this.remoteData.results.find((item) => {
-      return false;
-    });
+    if (this.remoteData) {
+      const user = this.remoteData.results.find((item: any) => {
+        return item.email === email;
+      });
+
+      return user;
+    }
+
+    return undefined;
   }
 }

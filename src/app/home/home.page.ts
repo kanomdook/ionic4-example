@@ -1,6 +1,6 @@
 import { UserService } from './../services/user.service';
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, Item } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -21,8 +21,8 @@ export class HomePage {
   }
 
   openDetail(person) {
-    this.userService.selcetedUser = person;
-    this.navCtrl.navigateForward('/detail');
+    // this.userService.selcetedUser = person;
+    this.navCtrl.navigateForward('/detail/' + person.email);
   }
 
   async loadUser() {
